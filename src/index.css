@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 340 6% 12%;
+    --card: 0 0% 100%;
+    --card-foreground: 340 6% 12%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 340 6% 12%;
+    --primary: 342 89% 35%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 345 6% 88%;
+    --secondary-foreground: 340 6% 12%;
+    --muted: 345 6% 88%;
+    --muted-foreground: 340 6% 44%;
+    --accent: 342 89% 35%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 345 6% 88%;
+    --input: 345 6% 88%;
+    --ring: 342 89% 35%;
+    --radius: 1rem;
+  }
+
+  .dark {
+    --background: 340 6% 12%;
+    --foreground: 0 0% 98%;
+    --card: 340 6% 12%;
+    --card-foreground: 0 0% 98%;
+    --popover: 340 6% 12%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 342 89% 65%;
+    --primary-foreground: 340 6% 12%;
+    --secondary: 340 6% 18%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 340 6% 18%;
+    --muted-foreground: 340 6% 64%;
+    --accent: 342 89% 65%;
+    --accent-foreground: 340 6% 12%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 340 6% 18%;
+    --input: 340 6% 18%;
+    --ring: 342 89% 65%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+.wine-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.wine-card {
+  transition: transform 0.2s ease-in-out;
+}
+
+.wine-card:hover {
+  transform: translateY(-4px);
+}
