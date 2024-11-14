@@ -1,0 +1,39 @@
+// This is your Prisma schema file
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Wine {
+  id           String    @id @default(cuid())
+  name         String
+  image        String
+  style        String
+  grapes       String[]
+  location     String
+  vendor       String
+  purchaseDate DateTime
+  drinkBy      DateTime?
+  price        Int
+  notes        String?
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+  consumed     Consumed?
+}
+
+model Consumed {
+  id            String     @id @default(cuid())
+  wine          Wine       @relation(fields: [wineId], references: [id])
+  wineId        String     @unique
+  rating        Int
+  dateDrank     DateTime
+  wouldBuyAgain Boolean
+  foodPairings  String[]
+  experience    String?
+  createdAt     DateTime   @default(now())
+  updatedAt     DateTime   @updatedAt
+}
